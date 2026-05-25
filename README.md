@@ -1,8 +1,8 @@
-# 🧠 ExamGenius AI – Smart Exam Notes Generator
+# 🧠 NoteGenius – AI Exam Notes Generator
 
-ExamGenius AI is a powerful AI-driven SaaS platform that helps students generate exam-focused notes, revision material, important questions, and visual learning resources instantly using Artificial Intelligence.
+NoteGenius is a powerful AI-driven SaaS platform that helps students generate exam-focused notes, revision material, important questions, and visual learning resources instantly using Artificial Intelligence.
 
-The platform is designed to simplify exam preparation with one-click note generation, AI-powered summaries, diagrams, charts, and a secure credit-based system.
+The platform simplifies exam preparation with one-click AI note generation, smart summaries, diagrams, charts, and a secure credit-based system.
 
 ---
 
