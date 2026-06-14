@@ -32,7 +32,7 @@ const Auth = () => {
         </motion.div>
 
         {/* Right Content */}
-        <motion.div></motion.div>
+        {/* <motion.div></motion.div> */}
       </main>
     </div>
   );
