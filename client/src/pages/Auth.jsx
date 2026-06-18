@@ -58,13 +58,13 @@ const Auth = () => {
         </motion.div>
 
         {/* Right Content */}
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 ">
           <Feature icon={"🎁"} title="50 Free Credits" desc="Start with 50 credits to generate notes without paying."/>
           <Feature icon={"📘"} title="Exam Notes" desc="High-yield, revision-ready exam-oriented notes. "/>
           <Feature icon={"📂"} title="Project Notes" desc="Well-structured documentation for assignments & projects."/>
           <Feature icon={"📊"} title="50 Free Credits" desc="Auto-generated diagrams, charts and flow graphs."/>
           <Feature icon={"⬇️"} title="Free PDF Dowmload" desc="Download clean, printable PDFs instantly."/>
-        </div> */}
+        </div>
       </main>
     </div>
   );
