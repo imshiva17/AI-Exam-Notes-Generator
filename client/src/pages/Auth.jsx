@@ -1,8 +1,31 @@
 import React from "react";
 import { motion } from "motion/react";
 import { FcGoogle } from "react-icons/fc";
+import { signInWithPopup } from "firebase/auth";
+import {auth,provider} from "../utils/firebase"
+import axios from "axios";
+import { ServerUrl } from "../App";
 
 const Auth = () => {
+
+  const handleGoogleAuth = async () => {
+    try {
+      const response = await signInWithPopup(auth,provider)
+      const User = response.user
+      const name = User.displayName
+      const email  = User.email
+
+      const result = await axios.post(
+        ServerUrl + "/api/auth/google",
+        { name, email },
+        { withCredentials: true },
+      );
+      console.log(result.data);
+      
+    } catch (error) {
+      
+    }
+  }
   return (
     <div className="min-h-screen overflow-hidden bg-white text-black px-8 ">
       <motion.header
@@ -12,7 +35,7 @@ const Auth = () => {
         className="max-w-7xl mx-auto mt-8 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 px-8 py-6 shadow-[0_20px_45px_rgba(0,0,0,0.6)] "
       >
         <h1 className="text-2xl font-bold bg-linear-to-r from-white via-gray-300 to-white bg-clip-text text-transparent ">
-          NoteGenius
+          ExamGenius
         </h1>
 
         <p className="text-sm text-gray-300 mt-1 ">
@@ -31,6 +54,7 @@ const Auth = () => {
             Unlock Smart <br /> AI Notes
           </h1>
           <motion.button
+          onClick={handleGoogleAuth}
             whileHover={{
               y: -10,
               rotateX: 8,
