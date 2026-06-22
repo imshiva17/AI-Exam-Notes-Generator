@@ -2,30 +2,28 @@ import React from "react";
 import { motion } from "motion/react";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from "firebase/auth";
-import {auth,provider} from "../utils/firebase"
+import { auth, provider } from "../utils/firebase";
 import axios from "axios";
 import { ServerUrl } from "../App";
 
 const Auth = () => {
-
   const handleGoogleAuth = async () => {
     try {
-      const response = await signInWithPopup(auth,provider)
-      const User = response.user
-      const name = User.displayName
-      const email  = User.email
+      const response = await signInWithPopup(auth, provider);
+      const User = response.user;
+      const name = User.displayName;
+      const email = User.email;
 
       const result = await axios.post(
         ServerUrl + "/api/auth/google",
         { name, email },
         { withCredentials: true },
       );
-      console.log(result.data);
-      
     } catch (error) {
+      console.log(error);
       
     }
-  }
+  };
   return (
     <div className="min-h-screen overflow-hidden bg-white text-black px-8 ">
       <motion.header
@@ -54,7 +52,7 @@ const Auth = () => {
             Unlock Smart <br /> AI Notes
           </h1>
           <motion.button
-          onClick={handleGoogleAuth}
+            onClick={handleGoogleAuth}
             whileHover={{
               y: -10,
               rotateX: 8,
@@ -83,11 +81,31 @@ const Auth = () => {
 
         {/* Right Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 ">
-          <Feature icon={"🎁"} title="50 Free Credits" desc="Start with 50 credits to generate notes without paying."/>
-          <Feature icon={"📘"} title="Exam Notes" desc="High-yield, revision-ready exam-oriented notes. "/>
-          <Feature icon={"📂"} title="Project Notes" desc="Well-structured documentation for assignments & projects."/>
-          <Feature icon={"📊"} title="50 Free Credits" desc="Auto-generated diagrams, charts and flow graphs."/>
-          <Feature icon={"⬇️"} title="Free PDF Dowmload" desc="Download clean, printable PDFs instantly."/>
+          <Feature
+            icon={"🎁"}
+            title="50 Free Credits"
+            desc="Start with 50 credits to generate notes without paying."
+          />
+          <Feature
+            icon={"📘"}
+            title="Exam Notes"
+            desc="High-yield, revision-ready exam-oriented notes. "
+          />
+          <Feature
+            icon={"📂"}
+            title="Project Notes"
+            desc="Well-structured documentation for assignments & projects."
+          />
+          <Feature
+            icon={"📊"}
+            title="50 Free Credits"
+            desc="Auto-generated diagrams, charts and flow graphs."
+          />
+          <Feature
+            icon={"⬇️"}
+            title="Free PDF Dowmload"
+            desc="Download clean, printable PDFs instantly."
+          />
         </div>
       </main>
     </div>
@@ -107,15 +125,11 @@ function Feature({ icon, title, desc }) {
       style={{ transformStyle: "preserve-3d" }}
       className="relative rounded-2xl p-6 bg-linear-to-br from-black/90 via-black/80 to-black/90 backdrop-blur-2xl border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.7)] text-white "
     >
-        <div
-          className="relative z-10 "
-          style={{ transform: "translateZ(30px)" }}
-        >
-          <div className="text-4xl mb-3 ">{icon}</div>
-          <h3 className="text-lg font-semibold mb-2 ">{title}</h3>
-          <p className="text-gray-300 text-sm leading-relaxed ">{desc}</p>
-        </div>
-      
+      <div className="relative z-10 " style={{ transform: "translateZ(30px)" }}>
+        <div className="text-4xl mb-3 ">{icon}</div>
+        <h3 className="text-lg font-semibold mb-2 ">{title}</h3>
+        <p className="text-gray-300 text-sm leading-relaxed ">{desc}</p>
+      </div>
     </motion.div>
   );
 }
