@@ -9,8 +9,7 @@ import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
 
 const Auth = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleGoogleAuth = async () => {
     try {
       const response = await signInWithPopup(auth, provider);
@@ -24,10 +23,9 @@ const Auth = () => {
         { withCredentials: true },
       );
 
-      dispatch(setUserData(result.data))
+      dispatch(setUserData(result.data));
     } catch (error) {
       console.log(error);
-      
     }
   };
   return (
@@ -38,12 +36,11 @@ const Auth = () => {
         transition={{ duration: 1.5 }}
         className="max-w-7xl mx-auto mt-8 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 px-8 py-6 shadow-[0_20px_45px_rgba(0,0,0,0.6)] "
       >
-        <h1 className="text-2xl font-bold bg-linear-to-r from-white via-gray-300 to-white bg-clip-text text-transparent ">
+        <h1 className="text-2xl font-bold bg-linear-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
           ExamGenius
         </h1>
-
-        <p className="text-sm text-gray-300 mt-1 ">
-          AI-powered exam-oriented notes & revision
+        <p className="text-sm text-gray-300 mt-1">
+          Generate exam-focused notes, revision materials, and PDFs with AI
         </p>
       </motion.header>
 
@@ -73,43 +70,47 @@ const Auth = () => {
             Continue with Google
           </motion.button>
 
-          <p className="mt-6 max-w-xl text-lg bg-linear-to-br from-gray-700 via-gray-500/80 to-gray-700 bg-clip-text text-transparent ">
-            You get <span className="font-semibold ">50 FREE credits</span> to
-            create exam notes, project notes, charts, graphs and download clean
-            PDFs - instantly using AI.
+          <p className="mt-6 max-w-xl text-lg bg-linear-to-br from-gray-700 via-gray-500/80 to-gray-700 bg-clip-text text-transparent">
+            Get <span className="font-semibold">50 FREE credits</span> to create
+            exam notes, project notes, charts, graphs, and downloadable PDFs
+            instantly with AI.
           </p>
+
           <p className="mt-4 text-sm text-gray-500">
-            Start with 50 free credits <span className="mx-1">·</span> Upgrade
-            anytime for more credits <span className="mx-1">·</span> Instant
-            access
+            50 free credits included <span className="mx-1">·</span> Upgrade
+            anytime <span className="mx-1">·</span> Instant access
           </p>
         </motion.div>
 
         {/* Right Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           <Feature
             icon={"🎁"}
             title="50 Free Credits"
-            desc="Start with 50 credits to generate notes without paying."
+            desc="Start with 50 free credits to generate notes without paying."
           />
+
           <Feature
             icon={"📘"}
             title="Exam Notes"
-            desc="High-yield, revision-ready exam-oriented notes. "
+            desc="High-yield, revision-ready, exam-oriented notes."
           />
+
           <Feature
             icon={"📂"}
             title="Project Notes"
-            desc="Well-structured documentation for assignments & projects."
+            desc="Well-structured documentation for assignments and projects."
           />
+
           <Feature
             icon={"📊"}
-            title="50 Free Credits"
-            desc="Auto-generated diagrams, charts and flow graphs."
+            title="AI-Generated Diagrams"
+            desc="Automatically generated diagrams, charts, and flowcharts."
           />
+
           <Feature
             icon={"⬇️"}
-            title="Free PDF Dowmload"
+            title="Free PDF Download"
             desc="Download clean, printable PDFs instantly."
           />
         </div>
