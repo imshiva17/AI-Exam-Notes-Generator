@@ -25,7 +25,7 @@ const Notes = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-4 ">
+        <div className="flex items-center gap-4 flex-wrap">
           <button
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm  "
             onClick={() => navigate("/pricing")}
@@ -48,6 +48,10 @@ const Notes = () => {
           </button>
         </div>
       </motion.header>
+
+      <motion.div>
+        
+      </motion.div>
     </div>
   );
 };
